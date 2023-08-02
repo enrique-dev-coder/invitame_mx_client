@@ -1,0 +1,37 @@
+// mui imports
+import CancelIcon from '@mui/icons-material/Cancel';
+import { Typography, Paper, IconButton } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  height: 500,
+  padding: 4
+};
+
+const closeIconButtonStyle = {
+  position: 'absolute',
+  top: '-12px',
+  right: '-14px'
+};
+
+const ModalUI = ({ title, handleCloseModal, closeModal }) => {
+  const theme = useTheme();
+
+  return (
+    <Paper sx={style} elevation={3}>
+      <IconButton onClick={handleCloseModal} size="small" sx={closeIconButtonStyle}>
+        <CancelIcon color="error" fontSize="large" onClick={closeModal} />
+      </IconButton>
+      <Typography variant="h2" color={theme.palette.secondary['800']}>
+        {title}
+      </Typography>
+    </Paper>
+  );
+};
+
+export default ModalUI;

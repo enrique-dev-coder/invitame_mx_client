@@ -2,7 +2,6 @@
   "name": "berry-free-material-react-cra",
   "version": "3.3.2",
   "private": true,
-  "homepage": "https://berrydashboard.io/free",
   "dependencies": {
     "@emotion/cache": "^11.9.3",
     "@emotion/react": "^11.9.3",
@@ -12,6 +11,7 @@
     "@mui/material": "^5.8.6",
     "@mui/system": "^5.8.6",
     "@mui/utils": "^5.8.6",
+    "@mui/x-data-grid": "^6.10.2",
     "@tabler/icons": "^1.72.0",
     "apexcharts": "^3.35.3",
     "formik": "^2.2.9",

@@ -90,6 +90,7 @@ const NotificationSection = () => {
 
   return (
     <>
+      {/*notification icon*/}
       <Box
         sx={{
           ml: 2,
