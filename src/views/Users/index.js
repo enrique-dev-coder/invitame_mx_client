@@ -24,7 +24,7 @@ const Users = () => {
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'nombre', headerName: 'Nombre de usuario', width: 130 },
     { field: 'cellphone', headerName: 'Teléfono' },
-    { field: 'email', headerName: 'Email' },
+    { field: 'email', headerName: 'Email', width: 250 },
     { field: 'invites', headerName: 'Invitaciones suscritas', width: 250 }
     // {
     //   field: 'age',
