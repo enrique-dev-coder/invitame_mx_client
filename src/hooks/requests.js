@@ -14,3 +14,10 @@ export const httpPostUser = async (data) => {
     body: JSON.stringify(data)
   });
 };
+
+// invitations
+
+export const httpGetAllInvitations = async () => {
+  const response = await fetch(`${DEV_API_URL}invitations`);
+  return await response.json();
+};

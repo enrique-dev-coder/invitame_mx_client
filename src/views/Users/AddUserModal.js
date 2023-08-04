@@ -15,17 +15,17 @@ import useUsers from 'hooks/useUsers';
 // utils import
 import { handleChange } from 'utils/forms';
 
-const options = [
-  { label: 'The Godfather', id: 1 },
-  { label: 'Pulp Fiction', id: 2 }
-];
+const AddUserModal = ({ showModal, closeModal, invitations }) => {
+  // dropdown options
+  const options = invitations.map((item) => ({ label: item.nombre, id: item.link }));
 
-const AddUserModal = ({ showModal, closeModal }) => {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
-    cellphone: ''
+    cellphone: '',
+    invitation: ''
   });
+  console.log(formData);
   const handleInputChange = (e) => {
     handleChange(e, setFormData);
   };
@@ -91,6 +91,7 @@ const AddUserModal = ({ showModal, closeModal }) => {
             <Autocomplete
               disablePortal
               id="combo-box-demo"
+              onChange={(e) => setFormData({ ...formData, invitation: e.target.textContent })}
               options={options}
               renderInput={(params) => <TextField {...params} label="Asignar Invitaciones" color="secondary" />}
             />

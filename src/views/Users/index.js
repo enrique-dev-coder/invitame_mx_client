@@ -14,18 +14,22 @@ import MainTable from 'ui-component/tables/MainTable';
 import AddUserModal from './AddUserModal';
 
 // hooks
-
 import useUsers from 'hooks/useUsers';
+import useInvitations from 'hooks/useInvitations';
 
 const Users = () => {
   const { users } = useUsers();
+
+  const { getInvitations } = useInvitations();
+  const [invitations, setInvitations] = useState([]);
+
   // here add the columns to the table of users
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'nombre', headerName: 'Nombre de usuario', width: 130 },
     { field: 'cellphone', headerName: 'Teléfono' },
     { field: 'email', headerName: 'Email', width: 250 },
-    { field: 'invites', headerName: 'Invitaciones suscritas', width: 250 }
+    { field: 'invitation', headerName: 'Invitaciones suscritas', width: 250 }
     // {
     //   field: 'age',
     //   headerName: 'Age',
@@ -61,20 +65,26 @@ const Users = () => {
     id: items.id.S,
     nombre: items.nombre.S,
     email: items?.email?.S,
-    cellphone: items?.cellphone?.S
+    cellphone: items?.cellphone?.S,
+    invitation: items?.invitation?.S
   }));
+
+  const onClickAddUserButton = () => {
+    setModal(true);
+    getInvitations().then((res) => setInvitations(res));
+  };
 
   return (
     <>
       <Stack spacing={2} direction="row" justifyContent="flex-end" mb={4}>
-        <Button onClick={() => setModal(true)} startIcon={<PersonAddIcon />} color="secondary" variant="contained">
+        <Button onClick={onClickAddUserButton} startIcon={<PersonAddIcon />} color="secondary" variant="contained">
           Agregar Usuario
         </Button>
       </Stack>
       <MainCard title="Lista de usuarios">
         <MainTable rows={rows} columns={columns} />
       </MainCard>
-      <AddUserModal showModal={modal} closeModal={() => setModal(false)} />
+      <AddUserModal invitations={invitations} showModal={modal} closeModal={() => setModal(false)} />
     </>
   );
 };
