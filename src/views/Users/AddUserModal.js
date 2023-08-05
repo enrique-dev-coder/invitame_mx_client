@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // mui import
 import Modal from '@mui/material/Modal';
+import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -114,6 +115,11 @@ const AddUserModal = ({ showModal, closeModal, invitations }) => {
       </Snackbar>
     </>
   );
+};
+
+AddUserModal.propTypes = {
+  closeModal: PropTypes.func,
+  showModal: PropTypes.bool
 };
 
 export default AddUserModal;

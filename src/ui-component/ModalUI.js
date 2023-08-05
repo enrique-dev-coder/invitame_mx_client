@@ -2,6 +2,7 @@
 import CancelIcon from '@mui/icons-material/Cancel';
 import { Typography, Paper, IconButton } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 
 const style = {
   position: 'absolute',
@@ -32,6 +33,12 @@ const ModalUI = ({ title, handleCloseModal, closeModal, children }) => {
       {children}
     </Paper>
   );
+};
+
+ModalUI.propTypes = {
+  handleCloseModal: PropTypes.any,
+  closeModal: PropTypes.func,
+  title: PropTypes.string
 };
 
 export default ModalUI;
