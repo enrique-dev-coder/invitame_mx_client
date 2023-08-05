@@ -17,8 +17,8 @@ const AddUserModal = ({ showModal, closeModal }) => {
 };
 
 AddUserModal.propTypes = {
-  closeModal: PropTypes.any,
-  showModal: PropTypes.any
+  closeModal: PropTypes.func,
+  showModal: PropTypes.bool
 };
 
 export default AddUserModal;

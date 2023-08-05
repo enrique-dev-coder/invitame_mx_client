@@ -37,8 +37,8 @@ const ModalUI = ({ title, handleCloseModal, closeModal }) => {
 
 ModalUI.propTypes = {
   handleCloseModal: PropTypes.any,
-  closeModal: PropTypes.any,
-  title: PropTypes.any
+  closeModal: PropTypes.func,
+  title: PropTypes.string
 };
 
 export default ModalUI;
