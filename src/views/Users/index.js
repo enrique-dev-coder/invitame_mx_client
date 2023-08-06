@@ -27,9 +27,10 @@ const Users = () => {
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'nombre', headerName: 'Nombre de usuario', width: 130 },
-    { field: 'cellphone', headerName: 'Teléfono' },
+    { field: 'cellphone', headerName: 'Teléfono', width: 150 },
     { field: 'email', headerName: 'Email', width: 250 },
-    { field: 'invitation', headerName: 'Invitaciones suscritas', width: 250 }
+    { field: 'invitation', headerName: 'Invitaciones suscritas', width: 250 },
+    { field: 'password', headerName: 'contraseña', width: 150 }
     // {
     //   field: 'age',
     //   headerName: 'Age',
@@ -66,7 +67,8 @@ const Users = () => {
     nombre: items.nombre.S,
     email: items?.email?.S,
     cellphone: items?.cellphone?.S,
-    invitation: items?.invitation?.S
+    invitation: items?.invitation?.S,
+    password: items?.password?.S
   }));
 
   const onClickAddUserButton = () => {

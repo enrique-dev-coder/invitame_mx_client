@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // mui import
 import Modal from '@mui/material/Modal';
 import PropTypes from 'prop-types';
@@ -8,6 +9,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import PasswordIcon from '@mui/icons-material/Password';
 
 // project import
 import ModalUI from 'ui-component/ModalUI';
@@ -24,16 +26,22 @@ const AddUserModal = ({ showModal, closeModal, invitations }) => {
     nombre: '',
     email: '',
     cellphone: '',
-    invitation: ''
+    invitation: '',
+    password: ''
   });
-  console.log(formData);
+
   const handleInputChange = (e) => {
     handleChange(e, setFormData);
   };
 
   const [showNotification, setShowNotification] = useState(false);
 
-  const { addUser } = useUsers();
+  const { addUser, getPassword } = useUsers();
+
+  const onClickPasswordIcon = async () => {
+    const pass = await getPassword();
+    setFormData({ ...formData, password: pass });
+  };
 
   const handleClose = (reason) => {
     if (reason === 'clickaway') {
@@ -86,7 +94,17 @@ const AddUserModal = ({ showModal, closeModal, invitations }) => {
               label="Teléfono"
               variant="outlined"
             />
-            <TextField color="secondary" id="outlined-basic" label="Contraseña" variant="outlined" />
+            <Stack direction="row" sx={{ cursor: 'pointer' }} color="secondary">
+              <PasswordIcon onClick={onClickPasswordIcon} />
+              <TextField
+                name="password"
+                value={formData.password}
+                color="secondary"
+                id="outlined-basic"
+                label="Contraseña"
+                variant="outlined"
+              />
+            </Stack>
           </Stack>
           <Stack mt={2}>
             <Autocomplete
