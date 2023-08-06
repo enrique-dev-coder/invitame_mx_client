@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-import { httpGetAllUsers, httpPostUser } from './requests';
+import { httpGetAllUsers, httpPostUser, httpGetNewPasswordForUser } from './requests';
 
 const useUsers = () => {
   const [users, setUsers] = useState([]);
@@ -32,9 +32,14 @@ const useUsers = () => {
     getUsers();
   }, [getUsers]);
 
+  const getPassword = useCallback(async () => {
+    return httpGetNewPasswordForUser();
+  }, []);
+
   return {
     users,
-    addUser
+    addUser,
+    getPassword
   };
 };
 

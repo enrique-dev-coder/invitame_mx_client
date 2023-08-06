@@ -15,6 +15,11 @@ export const httpPostUser = async (data) => {
   });
 };
 
+export const httpGetNewPasswordForUser = async () => {
+  const response = await fetch(`${DEV_API_URL}administration/user/password`);
+  return await response.json();
+};
+
 // invitations
 
 export const httpGetAllInvitations = async () => {
