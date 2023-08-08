@@ -1,5 +1,5 @@
 import { httpGetAuthToken } from 'hooks/requests';
-
+import jwtDecode from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 // Acción Thunk para el inicio de sesión
@@ -12,6 +12,8 @@ export const loginUser = (loginData) => async (dispatch) => {
     if (response.token) {
       dispatch({ type: 'LOGIN' }); // Despacha la acción de LOGIN
       Cookies.set('token', response.token, { expires: 30, secure: true, sameSite: 'strict' });
+      const decodedToken = jwtDecode(response.token); // Decode token
+      dispatch({ type: 'LOGIN', user: decodedToken }); // update user
     } else {
       console.error('Inicio de sesión fallido:', response.error);
     }
@@ -24,7 +26,8 @@ export const checkAuthentication = () => {
   return (dispatch) => {
     const token = Cookies.get('token'); // Lee el token de la cookie
     if (token) {
-      dispatch({ type: 'LOGIN' }); // Actualiza el estado a autenticado
+      const decodedToken = jwtDecode(token);
+      dispatch({ type: 'LOGIN', user: decodedToken }); // update user
     }
   };
 };
