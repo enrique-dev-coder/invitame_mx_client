@@ -12,8 +12,6 @@ import AuthenticationRoutes from './AuthenticationRoutes';
 export default function ThemeRoutes() {
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const authenticationRoutes = useRoutes([AuthenticationRoutes]);
-  const mainRoutes = useRoutes([MainRoutes]);
 
   const tokenExists = async () => {
     return new Promise((resolve, reject) => {
@@ -39,5 +37,5 @@ export default function ThemeRoutes() {
     checkToken();
   }, [isAuthenticated]);
 
-  return [mainRoutes, authenticationRoutes];
+  return useRoutes([MainRoutes, AuthenticationRoutes]);
 }

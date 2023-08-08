@@ -39,8 +39,7 @@ const useUsers = () => {
   return {
     users,
     addUser,
-    getPassword,
-    userLogin
+    getPassword
   };
 };
 
