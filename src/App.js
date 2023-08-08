@@ -18,11 +18,9 @@ import NavigationScroll from 'layout/NavigationScroll';
 
 const App = () => {
   const customization = useSelector((state) => state.customization);
-
   const dispatch = useDispatch();
 
-  //  review the auth at the start of app
-
+  //  review the auth at the start of app and load user to redux state
   useEffect(() => {
     dispatch(checkAuthentication());
   }, [dispatch]);

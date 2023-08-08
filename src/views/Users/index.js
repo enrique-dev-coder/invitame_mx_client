@@ -32,8 +32,8 @@ const Users = () => {
   const [modal, setModal] = useState(false);
 
   const rows = users.map((items) => ({
-    id: items.id.S,
-    nombre: items.nombre.S,
+    id: items?.id?.S,
+    nombre: items?.nombre?.S,
     email: items?.email?.S,
     cellphone: items?.cellphone?.S,
     invitation: items?.invitation?.S,

@@ -10,7 +10,8 @@ import admin from './admin';
 const menuItems = {
   // DEFAULT THEME
   // items: [ dashboard, pages, utilities, other]
-  items: [admin, other]
+  userItems: [other],
+  adminItems: [admin]
 };
 
 export default menuItems;
