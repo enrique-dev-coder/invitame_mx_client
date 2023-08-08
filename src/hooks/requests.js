@@ -26,3 +26,16 @@ export const httpGetAllInvitations = async () => {
   const response = await fetch(`${DEV_API_URL}invitations`);
   return await response.json();
 };
+
+// login
+
+export const httpGetAuthToken = async (data) => {
+  const token = await fetch(`${DEV_API_URL}auth/login`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  return await token.json();
+};
