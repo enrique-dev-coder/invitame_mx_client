@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
+import { checkAuthentication } from 'store/authThunks';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
 
@@ -16,6 +18,12 @@ import NavigationScroll from 'layout/NavigationScroll';
 
 const App = () => {
   const customization = useSelector((state) => state.customization);
+  const dispatch = useDispatch();
+
+  //  review the auth at the start of app and load user to redux state
+  useEffect(() => {
+    dispatch(checkAuthentication());
+  }, [dispatch]);
 
   return (
     <StyledEngineProvider injectFirst>

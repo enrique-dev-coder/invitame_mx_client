@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-
+import { logoutUser } from 'store/authThunks';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -45,6 +45,7 @@ const ProfileSection = () => {
   const theme = useTheme();
   const customization = useSelector((state) => state.customization);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [sdm, setSdm] = useState(true);
   const [value, setValue] = useState('');
@@ -56,7 +57,7 @@ const ProfileSection = () => {
    * */
   const anchorRef = useRef(null);
   const handleLogout = async () => {
-    console.log('Logout');
+    dispatch(logoutUser());
   };
 
   const handleClose = (event) => {

@@ -2,6 +2,7 @@
 import CancelIcon from '@mui/icons-material/Cancel';
 import { Typography, Paper, IconButton } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 
 const style = {
   position: 'absolute',
@@ -9,8 +10,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  height: 500,
-  padding: 4
+  padding: 3
 };
 
 const closeIconButtonStyle = {
@@ -19,7 +19,7 @@ const closeIconButtonStyle = {
   right: '-14px'
 };
 
-const ModalUI = ({ title, handleCloseModal, closeModal }) => {
+const ModalUI = ({ title, handleCloseModal, closeModal, children }) => {
   const theme = useTheme();
 
   return (
@@ -30,8 +30,15 @@ const ModalUI = ({ title, handleCloseModal, closeModal }) => {
       <Typography variant="h2" color={theme.palette.secondary['800']}>
         {title}
       </Typography>
+      {children}
     </Paper>
   );
+};
+
+ModalUI.propTypes = {
+  handleCloseModal: PropTypes.any,
+  closeModal: PropTypes.func,
+  title: PropTypes.string
 };
 
 export default ModalUI;
