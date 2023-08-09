@@ -31,3 +31,12 @@ export const checkAuthentication = () => {
     }
   };
 };
+export const logoutUser = () => {
+  return (dispatch) => {
+    // Eliminar el token de las cookies
+    Cookies.remove('token');
+
+    // Despachar la acción de LOGOUT para actualizar el estado
+    dispatch({ type: 'LOGOUT' });
+  };
+};
