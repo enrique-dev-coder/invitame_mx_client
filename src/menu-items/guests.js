@@ -4,9 +4,8 @@ import CelebrationIcon from '@mui/icons-material/Celebration';
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
-const admin = {
+const guest = {
   id: 'guests',
-  title: 'Invitados',
   type: 'group',
   children: [
     {
@@ -20,4 +19,4 @@ const admin = {
   ]
 };
 
-export default admin;
+export default guest;
