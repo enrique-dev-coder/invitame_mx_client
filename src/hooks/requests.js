@@ -39,3 +39,9 @@ export const httpGetAuthToken = async (data) => {
   });
   return await token.json();
 };
+
+// guests
+export const httpGetInviteGuests = async (invitation) => {
+  const response = await fetch(`${DEV_API_URL}invitations/${invitation}`);
+  return await response.json();
+};
