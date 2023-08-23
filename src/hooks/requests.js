@@ -45,3 +45,18 @@ export const httpGetInviteGuests = async (invitation) => {
   const response = await fetch(`${DEV_API_URL}invitations/${invitation}`);
   return await response.json();
 };
+
+// upload csv
+
+export const httpUploadCsv = async (file) => {
+  const formData = new FormData();
+
+  formData.append('csvFile', file);
+
+  const response = await fetch(`${DEV_API_URL}invitations/guests`, {
+    method: 'post',
+    body: formData
+  });
+
+  return await response.json();
+};
