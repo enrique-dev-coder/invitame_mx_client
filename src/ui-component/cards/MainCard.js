@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Card, CardContent, CardHeader, Divider, Typography } from '@mui/material';
 
-// constant
+// constant.
 const headerSX = {
   '& .MuiCardHeader-action': { mr: 0 }
 };
