@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Card, CardContent, CardHeader, Divider, Typography } from '@mui/material';
+import { Card, CardContent, CardHeader, Divider, TextField, Typography } from '@mui/material';
 
 // constant.
 const headerSX = {
@@ -46,7 +46,15 @@ const MainCard = forwardRef(
         }}
       >
         {/* card header and action */}
-        {title && <CardHeader sx={headerSX} title={darkTitle ? <Typography variant="h3">{title}</Typography> : title} action={secondary} />}
+        {/* eslint-disable */}
+        {title && <CardHeader sx={headerSX} title={darkTitle ? 
+              <Typography variant="h3">{title}</Typography> : 
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                <h4>{title}</h4>
+                <TextField id="standard-basic" variant="standard" color='secondary' />
+              </div>
+            } 
+          action={secondary} />}
 
         {/* content & header divider */}
         {title && <Divider />}
