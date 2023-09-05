@@ -12,6 +12,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import MenuList from './MenuList';
 import LogoSection from '../LogoSection';
 import { drawerWidth } from 'store/constant';
+import ProfileSection from '../Header/ProfileSection';
 
 // ==============================|| SIDEBAR DRAWER ||============================== //
 
@@ -21,11 +22,6 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
 
   const drawer = (
     <>
-      <Box sx={{ display: { xs: 'block', md: 'none' } }}>
-        <Box sx={{ display: 'flex', p: 2, mx: 'auto' }}>
-          <LogoSection />
-        </Box>
-      </Box>
       <BrowserView>
         <PerfectScrollbar
           component="div"
@@ -35,7 +31,13 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
             paddingRight: '16px'
           }}
         >
+          <Box sx={{ display: { xs: 'block' } }}>
+            <Box sx={{ display: 'flex', p: 2, mx: 'auto' }}>
+              <LogoSection />
+            </Box>
+          </Box>
           <MenuList />
+          <ProfileSection />
         </PerfectScrollbar>
       </BrowserView>
       <MobileView>
@@ -61,10 +63,7 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
             width: drawerWidth,
             background: theme.palette.background.default,
             color: theme.palette.text.primary,
-            borderRight: 'none',
-            [theme.breakpoints.up('md')]: {
-              top: '88px'
-            }
+            borderRight: 'none'
           }
         }}
         ModalProps={{ keepMounted: true }}
