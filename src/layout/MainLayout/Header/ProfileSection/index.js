@@ -70,7 +70,7 @@ const ProfileSection = () => {
         sx={{
           height: '48px',
           alignItems: 'center',
-          borderRadius: '27px',
+          borderRadius: '8px',
           transition: 'all .2s ease-in-out',
           borderColor: theme.palette.secondary.light,
           backgroundColor: theme.palette.secondary.light,
@@ -143,7 +143,6 @@ const ProfileSection = () => {
                           {user?.email}
                         </Typography>
                       </Stack>
-                      <Typography variant="subtitle2">Project Admin</Typography>
                     </Stack>
                     <Divider />
                   </Box>
@@ -152,8 +151,8 @@ const ProfileSection = () => {
                       component="nav"
                       sx={{
                         width: '100%',
-                        maxWidth: 350,
-                        minWidth: 300,
+                        maxWidth: 250,
+                        minWidth: 200,
                         backgroundColor: theme.palette.background.paper,
                         borderRadius: '10px',
                         [theme.breakpoints.down('md')]: {
