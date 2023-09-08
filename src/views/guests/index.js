@@ -1,9 +1,11 @@
 // hooks
 
+import { InputAdornment, TextField } from '@mui/material';
 import useInvitations from 'hooks/useInvitations';
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
 import MainTable from 'ui-component/tables/MainTable';
+import SearchIcon from '@mui/icons-material/Search';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
@@ -30,6 +32,20 @@ const GuestsPage = () => {
   return (
     <>
       <MainCard title="Lista de invitados">
+        <TextField
+          id="standard-basic"
+          variant="standard"
+          color="secondary"
+          type="search"
+          style={{ marginBottom: '30px', width: '300px' }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            )
+          }}
+        />
         <MainTable rows={rows} columns={columns} />
       </MainCard>
     </>
